@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--  LinearLayout : 안드로이드에서 제공하는 layout 구성 태그 중 하나 -->
+<!--  자식 태그인 View를 가로 혹은 세로로 배치할 경우 사용함 -->
+<!--  layout_width : View의 너비를 설정하는 속성 -->
+<!--  layout_height : View의 높이를 설정하는 속성 -->
+<!--  orientation : 자식 태그를 배치할 방향 설정 속성 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<!--  Button : 화면 UI 태그 중 버튼 기능을 하는 태그 -->
+<!--  text : 버튼의 컨텐츠인 문자를 설정하는 속성 -->
+<!--  match_parent : 부모의 크기만큼 크기를 설정하는 속성값 -->
+<!--  wrap_content : 자신의 컨텐츠 크기만큼 크기를 설정하는 속성값 -->
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn01"
+      android:text="버튼 1"/>
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn02"
+      android:text="버튼 2"
+      android:textSize="25dp"/>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn03"
+        android:text="버튼 3"
+        android:layout_margin="20dp"
+        android:visibility="gone"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn04"
+        android:text="버튼 4"
+        android:padding="40dp"/>
+  </LinearLayout>
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="이지스 퍼블리싱 - 웹페이지 : http://easyspub.com, 전화번호 : 325-1722, 이메일 : easy@easyspub.com"
+      android:autoLink="web|email|phone"/>
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="이지스 퍼블리싱 - 웹페이지 : http://easyspub.com, 전화번호 : 325-1722, 이메일 : easy@easyspub.com,이지스 퍼블리싱 - 웹페이지 : http://easyspub.com, 전화번호 : 325-1722, 이메일 : easy@easyspub.com,이지스 퍼블리싱 - 웹페이지 : http://easyspub.com, 전화번호 : 325-1722, 이메일 : easy@easyspub.com,이지스 퍼블리싱 - 웹페이지 : http://easyspub.com, 전화번호 : 325-1722, 이메일 : easy@easyspub.com,이지스 퍼블리싱 - 웹페이지 : http://easyspub.com, 전화번호 : 325-1722, 이메일 : easy@easyspub.com"
+      android:ellipsize="end"
+      android:maxLines="3"/>
+
+
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:maxWidth="100dp"
+      android:maxHeight="100dp"
+      android:adjustViewBounds="true"
+      android:src="@drawable/dog01"/>
+</LinearLayout>
+
+
+
+
+
+
