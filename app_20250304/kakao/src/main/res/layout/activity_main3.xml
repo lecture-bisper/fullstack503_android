@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:gravity="center">
+
+<!--  gravity : 컨텐츠를 정렬하는 속성 -->
+<!--  layout_gravity : 태그를 정렬하는 속성 -->
+<!--  ' | ' 사용 시 동시에 2개의 값을 입력할 수 있음 -->
+<!--  기본값은 left, top -->
+  <TextView
+      android:layout_width="150dp"
+      android:layout_height="150dp"
+      android:background="#FF0000"
+      android:textSize="15dp"
+      android:textStyle="bold"
+      android:textColor="@color/white"
+      android:text="Hello world!!"
+      android:gravity="center"
+      android:layout_gravity="center"/>
+
+</LinearLayout>

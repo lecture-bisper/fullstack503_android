@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:orientation="vertical">
+
+<!--  id : 해당 layout 파일에서 태그를 구분하는 유일한 값 -->
+<!--  @+id 는 @는 리소스를 의미하고, +id 리소스에 id를 등록하겠다는 의미 -->
+<!--  @+id 로 등록한 id는 코틀린 파일에서 호출하여 사용할 수 있음 -->
+
+<!--  text 입력 시 @ 라고 되어 있는 부분은 리소스 영역에 있는 데이터를 사용한다는 의미 -->
+<!--  @string 현재 모듈의 res 폴더 아래의 values 안에 있는 strings.xml 파일을 의미 -->
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/main_desc"
+      android:id="@+id/tv01"
+      android:textSize="17dp"/>
+
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="test@bitc.ac.kr"
+      android:layout_marginTop="10dp"
+      android:textColor="#CFCFCE"/>
+
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:layout_marginTop="10dp"
+      android:background="#D4D4D3"/>
+
+  <EditText
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="비밀번호"
+      android:inputType="textPassword"/>
+
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:text="@string/password_txt"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:text="확인"/>
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
