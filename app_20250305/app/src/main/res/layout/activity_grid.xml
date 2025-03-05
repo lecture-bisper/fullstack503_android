@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:orientation="horizontal"
+    android:columnCount="3">
+<!--  GridLayout : html의 table 형식으로 화면을 구성하는 layout -->
+<!--  orientation : 자식 태그를 배치하는 방향을 설정함, vertical/horizontal -->
+<!--  rowCount : orientation을 vertical로 설정 시 사용, 세로로 배치 시 한 줄의 개수를 설정 -->
+<!--  columnCount : orientation을 horizontal 설정 시 사용, 가로로 배치 시 한 줄의 개수를 설정 -->
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="A"/>
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="helloworld!! helloworld!!"/>
+
+<!--  layout_row : 자식 태그의 세로 줄의 위치를 지정하는 속성 -->
+<!--  layout_column : 자식 태그의 가로 칸의 위치를 지정하는 속성-->
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="C"/>
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="D"/>
+
+<!--  같은 가로 줄 혹은 같은 세로 줄의 다른 태그의 크기를 같도록 만들려면 layout_gravity에 fill_horizontal/fill_vertical 을 사용함-->
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="E"
+      android:layout_gravity="fill_horizontal"/>
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="F"/>
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="G"/>
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="H"
+      android:layout_gravity="fill_vertical"/>
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="150dp"
+      android:text="I"/>
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="J"/>
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="K"/>
+
+<!--  layout_row와 layout_column를 사용하여 GridLayout에서의 위치를 지정하고, layout_gravity: end를 사용하여 정렬 방향을 오른쪽으로 설정하여 하나의 칸에 여러개의 태그를 출력함 -->
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="L"
+      android:layout_row="3"
+      android:layout_column="1"
+      android:layout_gravity="end"/>
+
+
+<!--  layout_columnSpan : 가로 칸을 합하는 속성, 현재 위치에서 합할 칸의 개수를 입력 -->
+<!--  layout_rowSpan : 세로 줄을 합하는 속성, 현재 위치에서 합할 줄의 개수를 입력 -->
+<!--  layout_columnSpan, layout_rowSpan 사용 시 태그의 너비 혹은 높이를 wrap_content로 설정해 놓았을 경우 해당 태그의 컨텐츠 크기만큼만 크기를 표현하기 때문에 합한 것처럼 보이지 않음 -->
+<!--  layout_gravity 에 fill 속성값을 사용하여 칸 혹은 줄의 크기만큼 크기를 변경할 수 있음 -->
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_row="4"
+      android:layout_column="0"
+      android:layout_columnSpan="2"
+      android:layout_gravity="fill_horizontal"
+      android:text="M"/>
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_rowSpan="2"
+      android:layout_gravity="fill_vertical"
+      android:text="N"/>
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="O"/>
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="P"/>
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Q"/>
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="R"/>
+
+</GridLayout>
