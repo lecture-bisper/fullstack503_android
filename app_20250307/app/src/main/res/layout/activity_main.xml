@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:padding="16dp">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnToast"
+        android:text="@string/toast"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnToastCallback"
+        android:text="@string/toast_callback"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnDatePicker"
+        android:text="@string/date_picker"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnTimePicker"
+        android:text="@string/time_picker"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAlertDialog"
+        android:text="@string/alert_dialog"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAlertDialogList"
+        android:text="@string/alert_dialog_list"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAlertDialogCheckbox"
+        android:text="@string/alert_dialog_Checkbox"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAlertDialogRadio"
+        android:text="@string/alert_dialog_radio"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAlertSound"
+        android:text="@string/alert_sound"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAlertMediaPlayer"
+        android:text="@string/alert_mediaplayer"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAlertMediaPlayerStop"
+        android:text="@string/alert_mediaplayer_stop"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAlertVibrator"
+        android:text="@string/alert_vibrator"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnNotification"
+        android:text="@string/alert_notification"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
+  </LinearLayout>
+</ScrollView>
