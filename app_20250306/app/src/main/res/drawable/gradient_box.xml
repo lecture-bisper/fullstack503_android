@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+<!--  색상 입력 시 8자리인 이유는 투명도, 레드, 그린, 블루 순서로 입력하기 때문임 -->
+  <gradient
+      android:startColor="#FFFF0000"
+      android:endColor="#80FF00FF"
+      android:angle="45"/>
+  <corners
+      android:radius="8dp"/>
+</shape>
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  color 폴더에 xxx_color.xml 파일을 생성하여 사용하면 해당 리소스를 사용하는 태그의 상태에 따라 색상을 변경할 수 있음 -->
+<!--  item 태그를 사용하여 지정한 태그의 상태를 설정할 수 있음 -->
+<!--  item 태그를 사용하여 여러가지 상태를 설정할 수 있음 -->
+<!--  item 태그에 상태를 설정하지 않을 경우 기본값으로 사용됨 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<!--  버튼이 눌러졌을 경우 -->
+  <item
+      android:state_pressed="true"
+      android:color="#FFFF0000"/>
+
+<!--  버튼에 포커스가 주어졌을 경우 -->
+  <item
+      android:state_focused="true"
+      android:color="#FF0000FF"/>
+
+<!--  버튼의 기본 값 -->
+  <item
+      android:color="#FF000000"/>
+</selector>
+
+
+
+
+
+
+
+
+

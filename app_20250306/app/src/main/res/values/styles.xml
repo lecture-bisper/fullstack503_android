@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--  style : 안드로이드에서 여러가지 속성을 한번에 적용시키기 위해서 사용하는 리소스 -->
+<!--  item : style 태그의 자식 태그로 실제 속성값을 입력하는 태그 -->
+<!--      미리 지정해 놓은 다른 리소스의 데이터를 가져와서 사용할 수 있음 -->
+<!--      태그에 적용할 속성명을 모두 입력하여 사용함 -->
+  <style name="MyTextStyle">
+<!--    dimens.xml 에서 제공하는 사용자 크기 속성 값을 가져옴 -->
+    <item name="android:textSize">@dimen/txt_size</item>
+<!--    colors.xml 에서 제공하는 사용자 크기 속성 값을 가져옴 -->
+    <item name="android:textColor">@color/txt_color</item>
+  </style>
+
+<!--  parent 속성 : style 태그 사용 시 미리 설정한 style 태그를 상속받아 사용할 수 있음 -->
+<!--  부모 태그가 가지고 있는 item 태그의 내용을 그대로 받아서 사용함 -->
+  <style name="MyTextStyleSub" parent="MyTextStyle">
+    <item name="android:background">@color/txt_bg_color</item>
+
+<!--    부모 태그인 MyTextStyle 태그를 상속받아 부모 태그가 가지고 있는 item 태그를 그대로 사용 -->
+<!--    <item name="android:textSize">@dimen/txt_size</item>-->
+<!--    <item name="android:textColor">@color/txt_color</item>-->
+  </style>
+</resources>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--  안드로이드에서 색상을 지정하는 방법은 #16진코드 * 8 자리로 구성됨 -->
+<!--  순서는 2자리씩 00 ~ FF 까지 입력할 수 있으며, 순서는 투명도, 레드, 그린, 블루 순임 -->
+<!--  투명도의 00 은 완전 투명, FF는 완전 불투명 -->
+<!--  다른 색상은 00 은 색상이 없고, FF 는 지정한 색상이 있음 (00 -> FF 로 가면서 점점 진해짐) -->
+<!--  색상을 16진 * 6자리로 구성하는 것도 가능함 -->
+  <color name="black">#FF000000</color>
+  <color name="white">#FFFFFFFF</color>
+  <color name="txt_color">#FFFFFF00</color>
+  <color name="txt_bg_color">#FF0000</color>
+</resources>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResActivity1">
+
+  <ImageView
+      android:id="@+id/imageView"
+      android:layout_width="200dp"
+      android:layout_height="200dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.050000012"
+      app:srcCompat="@drawable/gradient_box" />
+
+  <TextView
+      android:id="@+id/tv01"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/imageView"
+      android:text="@string/txt_data1"/>
+
+<!--  @ : xml에서 안드로이드 시스템의 리소스를 의미하는 기호 -->
+<!--  안드로이드의 리소스는 사용자가 입력한 리소스와 안드로이드 시스템에서 제공하는 리소스가 존재함 -->
+<!--  res 폴더 안에 입력하는 리소스는 사용자 리소스임, 나머지는 안드로이드 및 다른 라이브러리에서 제공하는 리소스임 -->
+  <TextView
+      android:id="@+id/tv02"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/txt_data2"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tv01" />
+
+  <TextView
+      android:id="@+id/tv03"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:background="@color/txt_bg_color"
+      android:text="TextView"
+      android:textColor="@color/txt_color"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tv02" />
+
+  <TextView
+      android:id="@+id/tv04"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:text="TextView"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tv03" />
+
+  <TextView
+      android:id="@+id/tv05"
+      style="@style/MyTextStyleSub"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:text="TextView"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tv04" />
+
+<!--  color 폴더에 생성한 리소스 파일명을 @color/파일명 형태로 사용함 -->
+<!--  values 아래의 리소스 파일은 파일안의 태그에 있는 name 속성명을 기준으로 리소스를 가져옴 -->
+<!--  values 를 제외한 다른 폴더에 있는 리소스는 리소스 파일명을 기준으로 리소스를 가져옴-->
+  <Button
+      android:id="@+id/btn_state_01"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:text="Button"
+      android:textColor="@color/button_color"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tv05" />
+
+  <TextView
+      android:id="@+id/textView6"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:fontFamily="@font/songmyung_regular"
+      android:text="다운로드한 폰트로 적용"
+      android:textSize="20dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/btn_state_01" />
+
+<!--  xml 에서 안드로이드 기본 시스템 리소스 사용하기 -->
+  <TextView
+      android:id="@+id/tv07"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:text="@android:string/emptyPhoneNumber"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+  <TextView
+      android:id="@+id/tv08"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:fontFamily="@font/songmyung_regular"
+      android:text="TextView"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tv07" />
+
+  <LinearLayout
+      android:id="@+id/linearLayout"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:gravity="center"
+      android:orientation="horizontal"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tv08">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="단위를 px로 사용"
+        android:textSize="12px" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="단위를 dp로 사용"
+        android:textSize="12dp" />
+  </LinearLayout>
+
+  <TextView
+      android:id="@+id/tv09"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:text="TextView"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
