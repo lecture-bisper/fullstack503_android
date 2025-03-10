@@ -114,5 +114,37 @@
         android:layout_marginTop="8dp"
         android:layout_marginHorizontal="10dp"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnNotificationAction"
+        android:text="@string/alert_notification_action"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnNotificationRemote"
+        android:text="@string/alert_notification_remote"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnNotificationProgress"
+        android:text="@string/alert_notification_progress"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnNotificationStyle"
+        android:text="@string/alert_notification_style"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"/>
+
   </LinearLayout>
 </ScrollView>

@@ -1,6 +1,7 @@
 package bitc.fullstack.app_20250307
 
 import android.app.DatePickerDialog
+import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -8,6 +9,7 @@ import android.app.TimePickerDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.media.AudioAttributes
 import android.media.MediaPlayer
@@ -16,6 +18,7 @@ import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.SystemClock
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
@@ -28,9 +31,13 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
+import androidx.core.app.Person
+import androidx.core.app.RemoteInput
+import androidx.core.graphics.drawable.IconCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import bitc.fullstack.app_20250307.databinding.ActivityMainBinding
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
 
@@ -360,6 +367,10 @@ class MainActivity : AppCompatActivity() {
 //      상단 알림창 클릭 시 아이콘에 존재하는 알림 숫자를 제거
       builder.setAutoCancel(true)
 
+//      상단 알림의 터치 이벤트 : 상단 알림 자체가 현재 앱에서 동작하는 것이 아니라 안드로이드 시스템에 실행해 달라고 요청하는 것이기 때문에 상단 알림의 터치 이벤트도 직접 실행할 수 없음
+//        각종 이벤트를 모두 안드로이드 시스템에 동작 시켜 달라고 요청해야 함
+//        이러한 요청을 Intent 라는 객체가 안드로이드 시스템에 대신 요청해 줌
+
 //      화면 전환을 위한 컴포넌트
 //      첫번째 매개변수를 사용하여 전환할 앱을 선택 (현재 앱을 의미)
 //      두번째 매개변수를 사용하여 원하는 엑티비티로 이동
@@ -373,6 +384,292 @@ class MainActivity : AppCompatActivity() {
 //      안드로이드 시스템 서비스에 상단 알림창 출력 요청
 //      첫번째 매개변수는 안드로이드 시스템 서비스에 요청 시 사용하는 ID
       manager.notify(11, builder.build())
+    }
+
+//    상단 알림창의 액션버튼 사용하기
+    binding.btnNotificationAction.setOnClickListener{
+      val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+      val builder: NotificationCompat.Builder
+
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        val channelId = "액션 버튼 ID"
+        val channelName = "알림 액션 버튼"
+        val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH)
+
+        channel.description = "알림 채널 액션 설명 부분"
+        channel.setShowBadge(true)
+
+        val uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        val audioAttributes = AudioAttributes.Builder()
+          .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+          .setUsage(AudioAttributes.USAGE_ALARM)
+          .build()
+
+        channel.setSound(uri, audioAttributes)
+        channel.enableLights(true)
+        channel.lightColor = Color.RED
+        channel.enableVibration(true)
+        channel.vibrationPattern = longArrayOf(100, 200, 100, 200)
+
+        manager.createNotificationChannel(channel)
+
+        builder = NotificationCompat.Builder(this, channelId)
+      }
+      else {
+        builder = NotificationCompat.Builder(this)
+      }
+
+      builder.setSmallIcon(android.R.drawable.ic_notification_overlay)
+      builder.setWhen(System.currentTimeMillis())
+      builder.setContentTitle("상단 알림에서 액션 버튼 사용하기")
+      builder.setContentText("확인 버튼 클릭하기")
+      builder.setAutoCancel(true)
+
+//      안드로이드 시스템에서 대신 동작할 내용 입력
+      val okIntent = Intent(this, ActionReceiver::class.java).apply {
+        action = "OK"
+      }
+
+//      안드로이드 시스템에 이벤트 동작 요청
+      val okPendingIntent = PendingIntent.getBroadcast(this, 0, okIntent, PendingIntent.FLAG_IMMUTABLE)
+
+//      상단 알림 객체에 이벤트 동작 요청 객체를 추가
+      builder.addAction(android.R.drawable.ic_menu_call, "확인", okPendingIntent)
+
+      val cancelIntent = Intent(this, ActionReceiver::class.java).apply { action = "CANCEL" }
+      val cancelPendingIntent = PendingIntent.getBroadcast(this, 1, cancelIntent, PendingIntent.FLAG_IMMUTABLE)
+      builder.addAction(android.R.drawable.ic_menu_close_clear_cancel, "취소", cancelPendingIntent)
+
+      val moreIntent = Intent(this, ActionReceiver::class.java).apply { action = "MORE" }
+      val morePendingIntent = PendingIntent.getBroadcast(this, 2, moreIntent, PendingIntent.FLAG_IMMUTABLE)
+      builder.addAction(android.R.drawable.ic_menu_info_details, "자세히 보기", morePendingIntent)
+
+//      안드로이드 시스템의 알림에 등록
+      manager.notify(12, builder.build())
+    }
+
+    binding.btnNotificationRemote.setOnClickListener {
+      val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+      val builder: NotificationCompat.Builder
+
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        val channelId = "원격 입력 채널 ID"
+        val channelName = "원격 메시지 입력"
+        val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH)
+
+        channel.description = "원격 입력으로 메시지 전달하기"
+        channel.setShowBadge(true)
+
+        val uri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        val audioAttributes = AudioAttributes.Builder()
+          .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+          .setUsage(AudioAttributes.USAGE_ALARM)
+          .build()
+
+        channel.setSound(uri, audioAttributes)
+        channel.enableVibration(true)
+        channel.vibrationPattern = longArrayOf(100, 200, 100, 200)
+
+        manager.createNotificationChannel(channel)
+
+        builder = NotificationCompat.Builder(this, channelId)
+      }
+      else {
+        builder = NotificationCompat.Builder(this)
+      }
+
+      builder.setSmallIcon(android.R.drawable.ic_notification_overlay)
+      builder.setWhen(System.currentTimeMillis())
+      builder.setContentTitle("알림창 원격 메시지 입력 사용하기")
+      builder.setContentText("알림창에서 바로 전달할 메시지를 입력할 수 있음")
+      builder.setAutoCancel(true)
+
+
+//      원격 메시지 입력을 위한 부분
+
+//      원격 입력 시 사용할 키, 원격 입력을 위해서 사용하는 사용자 브로드캐스트 리시버에서 사용함
+      val receiverKeyName = "fullstack503-receiver"
+//      RemoteInput 객체를 receiverKeyName로 생성함
+      val remoteInput: RemoteInput = RemoteInput.Builder(receiverKeyName).run {
+        setLabel("응답")
+        build()
+      }
+
+//      액션 버튼과 동일하게 Intent를 생성하고 백그라운드에서 동작할 사용자 브로드캐스트 리시버를 등록함
+      val receiverIntent = Intent(this, RemoteInputReceiver::class.java)
+//      액션 버튼과 동일하게 PendingIntent를 getBroadcast()를 사용하여 생성
+      val receiverPendingIntent = PendingIntent.getBroadcast(this, 100, receiverIntent, PendingIntent.FLAG_MUTABLE)
+
+//      NotificationCompat에 addAction() 을 사용하여 생성한 PendingIntent를 추가
+      builder.addAction(
+        NotificationCompat.Action.Builder(android.R.drawable.ic_menu_send, "응답", receiverPendingIntent)
+          .addRemoteInput(remoteInput).build()
+      )
+
+      manager.notify(13, builder.build())
+    }
+
+    binding.btnNotificationProgress.setOnClickListener {
+      val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+      val builder: NotificationCompat.Builder
+
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        val channelId = "프로그레스바 채널 ID"
+        val channelName = "프로그레스바 이름"
+        val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH)
+
+        channel.description = "프로그레스바 사용하기"
+        channel.setShowBadge(true)
+
+        val uri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        val audioAttributes = AudioAttributes.Builder()
+          .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+          .setUsage(AudioAttributes.USAGE_ALARM)
+          .build()
+
+        channel.setSound(uri, audioAttributes)
+        channel.enableVibration(true)
+        channel.vibrationPattern = longArrayOf(100, 200, 100, 200)
+
+        manager.createNotificationChannel(channel)
+
+        builder = NotificationCompat.Builder(this, channelId)
+      }
+      else {
+        builder = NotificationCompat.Builder(this)
+      }
+
+      builder.setSmallIcon(android.R.drawable.ic_notification_overlay)
+      builder.setWhen(System.currentTimeMillis())
+      builder.setContentTitle("파일 다운로드 중 ...")
+//      자동 닫기를 막기 위해서 setAutoCancel(), setOngoing()을 설정
+      builder.setAutoCancel(false)
+      builder.setOngoing(true)
+
+//      상단 알림에 프로그레스바 출력
+//      setProgress() : 상단 알림에 프로그레스바를 출력하기 위한 메소드
+//      첫번째 매개변수 : 프로그레스바의 최대값
+//      두번째 매개변수 : 프로그레스바의 현재값
+//      프로그레스바가 움직이려면 스레드를 사용하여 두번째 매개변수를 계속 변경시켜 사용
+//      builder.setProgress(100, 50, false)
+
+//      스레드로 for 문을 사용하여 프로그레스바의 값을 변경
+      Thread {
+        for (i in 1..100 step 10) {
+          builder.setProgress(100, i, false)
+          manager.notify(14, builder.build())
+//          0.5초 동안 for문 진행을 멈춤
+          SystemClock.sleep(500)
+        }
+
+//        프로그레스바가 for 문을 통하여 값이 100 이상이 되면 상단 알림의 설정을 변경
+        builder.setContentText("다운로드 완료!!")
+        builder.setProgress(0, 0, false)
+//        상단 알림 자동 닫기로 설정
+        builder.setOngoing(false)
+        builder.setAutoCancel(true)
+
+        manager.notify(14, builder.build())
+      }.start()
+    }
+
+    binding.btnNotificationStyle.setOnClickListener {
+      val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+      val builder: NotificationCompat.Builder
+
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        val channelId = "알림 스타일 채널 ID"
+        val channelName = "알림 스타일 이름"
+        val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH)
+
+        channel.description = "알림 스타일 변경하기"
+        channel.setShowBadge(true)
+
+        val uri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        val audioAttributes = AudioAttributes.Builder()
+          .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+          .setUsage(AudioAttributes.USAGE_ALARM)
+          .build()
+
+        channel.setSound(uri, audioAttributes)
+        channel.enableVibration(true)
+        channel.vibrationPattern = longArrayOf(100, 200, 100, 200)
+
+        manager.createNotificationChannel(channel)
+
+        builder = NotificationCompat.Builder(this, channelId)
+      }
+      else {
+        builder = NotificationCompat.Builder(this)
+      }
+
+      builder.setSmallIcon(android.R.drawable.ic_notification_overlay)
+      builder.setWhen(System.currentTimeMillis())
+      builder.setContentTitle("상단 알림 스타일 변경하기")
+      builder.setContentText("상단 알림에 여러가지 스타일 적용")
+      builder.setAutoCancel(true)
+
+//      상단 알림에 스타일을 적용 시 총 4가지 방식의 스타일을 적용할 수 있음
+//      setStyle() 에 스타일 객체를 매개변수 사용하여 입력
+
+//      큰 이미지 스타일
+//      val option = BitmapFactory.Options().apply {
+//        inSampleSize = 2
+//      }
+//
+//      val bigPicture = BitmapFactory.decodeResource(resources, R.drawable.cat03, option)
+      
+//      NotificationCompat의 BigPictureStyle 객체를 생성하고 사용할 이미지를 설정
+//      val bigPictureStyle = NotificationCompat.BigPictureStyle()
+//        .bigPicture(bigPicture)
+
+//      생성된 NotificationCompat의 BigPictureStyle 객체를 builder의 setStyle() 를 사용하여 적용
+//      builder.setStyle(bigPictureStyle)
+      
+//      긴 텍스트 스타일
+//      NotificationCompat의 BigTextStyle() 객체를 생성하고 사용할 텍스트를 설정
+//      생성된 NotificationCompat의 BigTextStyle() 객체를 builder의 setStyle() 를 사용하여 적용
+//      val bigTextStyle = NotificationCompat.BigTextStyle().bigText(resources.getString(R.string.long_text))
+//
+//      builder.setStyle(bigTextStyle)
+
+//      박스 스타일
+//      NotificationCompat의 InboxStyle()에 addLine() 를 사용하여 목록을 추가
+//      생성된 NotificationCompat의 InBoxStyle() 객체를 builder의 setStyle() 를 사용하여 적용
+//      val inBoxStyle = NotificationCompat.InboxStyle()
+//        .addLine("1과목 : html, css, javascript")
+//        .addLine("2과목 : java")
+//        .addLine("3과목 : Database")
+//        .addLine("4과목 : JSP")
+//        .addLine("5과목 : Spring")
+//
+//      builder.setStyle(inBoxStyle)
+
+//      메시지 스타일
+//      NotificationCompat의 MessagingStyle()에 Message() 를 사용하여 메시지를 추가
+//      생성된 NotificationCompat의 MessagingStyle() 객체를 builder의 setStyle() 를 사용하여 적용
+
+//      채팅창 형태이므로 사용자 객체를 생성함
+      val sender1: Person = Person.Builder()
+        .setName("사용자 1")
+        .setIcon(IconCompat.createWithResource(this, R.mipmap.ic_launcher))
+        .build()
+
+      val sender2: Person = Person.Builder()
+        .setName("사용자 2")
+        .setIcon(IconCompat.createWithResource(this, R.mipmap.ic_launcher_round))
+        .build()
+
+      val msg1 = NotificationCompat.MessagingStyle.Message("안녕하세요", System.currentTimeMillis(), sender1)
+      val msg2 = NotificationCompat.MessagingStyle.Message("반갑습니다.", System.currentTimeMillis(), sender2)
+
+      val messageStyle = NotificationCompat.MessagingStyle(sender1)
+        .addMessage(msg1)
+        .addMessage(msg2)
+
+      builder.setStyle(messageStyle)
+
+      manager.notify(15, builder.build())
     }
   }
 

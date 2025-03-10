@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
   <!-- 스마트 폰의 진동 기능을 사용하기 위한 권한 요청 -->
   <uses-permission android:name="android.permission.VIBRATE" /> <!-- 스마트 폰의 상단 알림 기능을 사용하기 위한 권한 요청 -->
   <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
@@ -15,6 +16,17 @@
       android:supportsRtl="true"
       android:theme="@style/Theme.App_20250307"
       tools:targetApi="31">
+
+<!--    상단 알림의 원격 입력 사용 시 브로드캐스트 리시버를 등록해야 사용 가능 -->
+    <receiver
+        android:name=".RemoteInputReceiver"
+        android:exported="false"/>
+
+    <!-- 상단 알림의 액션 버튼 사용 시 브로드캐스트 리시버를 등록해야 사용 가능 -->
+    <receiver
+        android:name=".ActionReceiver"
+        android:exported="false" />
+
     <activity
         android:name=".NotificationActivity"
         android:exported="false" />

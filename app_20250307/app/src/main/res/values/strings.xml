@@ -13,4 +13,9 @@
   <string name="alert_mediaplayer_stop">Media Player 사운드 알림 정지</string>
   <string name="alert_vibrator">진동 알림 사용하기</string>
   <string name="alert_notification">안드로이드 상단 알림창 사용하기</string>
+  <string name="alert_notification_action">안드로이드 상단 알림창의 액션버튼 사용</string>
+  <string name="alert_notification_remote">안드로이드 상단 알림창에서 원격 입력</string>
+  <string name="alert_notification_progress">상단 알림창에 프로그레스바 사용</string>
+  <string name="alert_notification_style">상단 알림창 스타일 변경하기</string>
+  <string name="long_text">앞서 7일 공개된 넷플릭스 새 시리즈 \'폭싹 속았수다\'(극본 임상춘/연출 김원석)는 1960년대 제주를 배경으로 제주에서 나고 자란 ‘요망진 반항아’ 애순이와 ‘팔불출 무쇠’ 관식이의 모험 가득한 일생을 사계절로 풀어냈다. 지난 7일 4부까지 공개된 이 작품은, 총 16부작으로 앞으로 4주간 4부씩 공개된다. 인생의 사계절을 그린 드라마의 특성상, 제작진은 더욱 효과적으로 시청자들에게 감동을 전달하고자 이같이 결정한 것으로 전해졌다.</string>
 </resources>
