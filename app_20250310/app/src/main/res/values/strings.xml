@@ -1,0 +1,7 @@
+<resources>
+  <string name="app_name">app_20250310</string>
+  <string name="btn_move1">DetailActivity로 단순 화면 이동</string>
+  <string name="btn_move2">ParamActivity로 매개변수와 함께 이동</string>
+  <string name="btn_move3">startActvityForResult() 로 데이터 돌려받기</string>
+  <string name="btn_move4">ActivityResultLauncher 로 데이터 돌려받기</string>
+</resources>
