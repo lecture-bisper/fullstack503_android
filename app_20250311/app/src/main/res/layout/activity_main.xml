@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:orientation="vertical">
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_life"
+      android:text="엑티비티 생명주기"
+      android:layout_marginTop="8dp"
+      android:layout_marginHorizontal="8dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_toolbar"
+      android:text="Toolbar 적용하기"
+      android:layout_marginTop="8dp"
+      android:layout_marginHorizontal="8dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_fragment"
+      android:text="프래그먼트 사용하기"
+      android:layout_marginTop="8dp"
+      android:layout_marginHorizontal="8dp"/>
+
+</LinearLayout>

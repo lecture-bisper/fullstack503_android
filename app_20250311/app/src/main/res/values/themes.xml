@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <!-- Base application theme. -->
+<!--  안드로이드의 머트리얼 UI 라이브러리 3 버전에서 제공하는 액션바를 사용하지 않는 스타일을 상속 -->
+<!--  상속받은 스타일의 이름을 설정 -->
+  <style name="Base.Theme.App_20250311" parent="Theme.Material3.DayNight.NoActionBar">
+    <!-- Customize your light theme here. -->
+    <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <item name="colorPrimary">#FF0000</item>
+    <item name="android:statusBarColor">#CC0000</item>
+    <item name="colorAccent">#00FF00</item>
+  </style>
+
+<!--  해당 스타일을 AndroidManifest.xml 에서 사용하여 현재 앱에 스타일을 적용 -->
+  <style name="Theme.App_20250311" parent="Base.Theme.App_20250311" />
+</resources>
