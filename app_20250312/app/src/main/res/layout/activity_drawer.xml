@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/drawer">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFF01"
+        android:text="드로어 레이아웃 영역"/>
+  </LinearLayout>
+
+  <TextView
+      android:background="#EF57A8"
+      android:gravity="center_horizontal"
+      android:layout_gravity="left"
+      android:text="DRAWER"
+      android:layout_height="match_parent"
+      android:layout_width="match_parent"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,10 @@
+<resources>
+  <string name="app_name">app_20250312</string>
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="one_fragment_txt">Hello one fragment</string>
+  <string name="two_fragment_txt">Hello two fragment</string>
+  <string name="three_fragment_txt">Hello three fragment</string>
+  <string name="drawer_opened">열기</string>
+  <string name="drawer_closed">닫기</string>
+  <string name="btn_run_receiver">RUN Receiver</string>
+</resources>
