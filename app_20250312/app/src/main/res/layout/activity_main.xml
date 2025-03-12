@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_recycler_view"
+      android:text="리사이클러 뷰 사용하기"
+      android:textSize="16sp"
+      android:layout_marginTop="16dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_veiw_pager"
+      android:text="뷰 페이저 사용하기"
+      android:textSize="16sp"
+      android:layout_marginTop="8dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_drawer"
+      android:text="드로어 레이아웃 사용하기"
+      android:textSize="16sp"
+      android:layout_marginTop="8dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_receiver"
+      android:text="브로드캐스트 리시버 사용하기"
+      android:textSize="16sp"
+      android:layout_marginTop="8dp"/>
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
