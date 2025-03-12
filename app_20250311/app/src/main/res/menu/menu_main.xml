@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <item
+      android:id="@+id/menu1"
+      android:title="메뉴 1"/>
+
+<!--  showAsAction : 툴바에 메뉴가 표시되는 방식을 설정 -->
+<!--  never : 기본값, 항상 오버플로 메뉴로 출력 -->
+<!--  ifRoom : 툴바가 공간이 있으면 액션 아이템으로 출력, 없으면 오버플로 메뉴로 출력 -->
+<!--  always : 항상 액션 아이템으로 출력 -->
+  <item
+      android:id="@+id/menu2"
+      android:title="메뉴 2"
+      android:icon="@android:drawable/ic_menu_add"
+      app:showAsAction="ifRoom"/>
+
+  <item
+      android:id="@+id/menu3"
+      android:title="메뉴 3"
+      android:icon="@android:drawable/ic_menu_search"
+      app:showAsAction="always"
+      app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+
+</menu>
+
+
+
+
+
+
+
+
+
