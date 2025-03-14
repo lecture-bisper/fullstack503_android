@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_phone"
+      android:text="전화앱 사용하기"
+      android:textSize="16sp"
+      android:layout_marginTop="16dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_map"
+      android:text="지도앱 사용하기"
+      android:textSize="16sp"
+      android:layout_marginTop="8dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_phone_book"
+      android:text="주소록 가져오기"
+      android:textSize="16sp"
+      android:layout_marginTop="8dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_photo"
+      android:text="사진첩 및 카메라로 사진 가져오기"
+      android:textSize="16sp"
+      android:layout_marginTop="8dp"/>
+
+</LinearLayout>
