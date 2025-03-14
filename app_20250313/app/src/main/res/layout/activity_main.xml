@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_service"
+      android:text="서비스 사용하기"
+      android:textSize="16sp"
+      android:layout_marginTop="16dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_mp3_player"
+      android:text="MP3 파일 재생 서비스"
+      android:textSize="16sp"
+      android:layout_marginTop="8dp"/>
+
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_content_provider"
+      android:text="콘텐츠 프로바이더 사용하기"
+      android:textSize="16sp"
+      android:layout_marginTop="8dp"/>
+
+
+</LinearLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_start_service"
+      android:text="startService() 로 실행"
+      android:textSize="16sp"
+      android:layout_marginTop="16dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_stop_service"
+      android:text="stopService() 로 정지"
+      android:textSize="16sp"
+      android:layout_marginTop="8dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_bind_service"
+      android:text="bindService() 로 시작"
+      android:textSize="16sp"
+      android:layout_marginTop="8dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_unbind_service"
+      android:text="unbindService() 로 정지"
+      android:textSize="16sp"
+      android:layout_marginTop="8dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_bind_service2"
+      android:text="bindService() 로 시작2"
+      android:textSize="16sp"
+      android:layout_marginTop="8dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_unbind_service2"
+      android:text="메시지 전달"
+      android:textSize="16sp"
+      android:layout_marginTop="8dp"/>
+</LinearLayout>
+
+
+
+
+
+
+
+

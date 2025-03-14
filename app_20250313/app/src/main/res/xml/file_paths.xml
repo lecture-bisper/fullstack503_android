@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+<!--  카메라로 사진을 찍을 경우 디바이스에 저장될 위치 설정 -->
+  <external-path
+      name="myfiles"
+      path="Android/data/bitc.fullstack.app_20250313/files/Pictures" />
+</paths>
+
+
+
+
+
+
+
