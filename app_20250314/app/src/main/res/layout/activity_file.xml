@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_system_in_file_write"
+      android:text="내장 저장소에 파일 쓰기"
+      android:layout_marginTop="16dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_system_in_file_read"
+      android:text="내장 저장소에서 파일 읽기"
+      android:layout_marginTop="8dp"/>
+
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="2dp"
+      android:background="@color/cardview_dark_background"
+      android:layout_marginVertical="8dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_system_out_file_write"
+      android:text="외부 저장소에 파일 쓰기"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_system_out_file_read"
+      android:text="외부 저장소에서 파일 읽기"
+      android:layout_marginTop="8dp"/>
+
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="2dp"
+      android:background="@color/cardview_dark_background"
+      android:layout_marginVertical="8dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_download_file_write"
+      android:text="공용 Download 폴더에 파일 쓰기"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_download_file_read"
+      android:text="공용 Download 폴더에서 파일 읽기"
+      android:layout_marginTop="8dp"/>
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
