@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+      <TextView
+          android:layout_width="50dp"
+          android:layout_height="wrap_content"
+          android:text="주소 : "/>
+
+      <EditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/et_server_url"
+          android:hint="서버 주소를 입력하세요"/>
+
+    </LinearLayout>
+  </ScrollView>
+
+  <GridLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:columnCount="3"
+      android:rowCount="2"
+      android:orientation="horizontal"
+      android:padding="8dp"
+      android:layout_marginTop="8dp">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_volley_request_string"
+        android:text="Volley String"
+        android:textSize="10sp"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:layout_columnWeight="2"
+        android:gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_volley_request_json"
+        android:text="Volley Json"
+        android:textSize="10sp"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:layout_columnWeight="2"
+        android:gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_url_clear"
+        android:text="주소 삭제"
+        android:textSize="10sp"
+        android:layout_row="0"
+        android:layout_column="2"
+        android:layout_columnWeight="1"
+        android:layout_rowSpan="2"
+        android:layout_rowWeight="1"
+        android:gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_retrofit_request_string"
+        android:text="Retrofit String"
+        android:textSize="10sp"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:layout_columnWeight="2"
+        android:gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_retrofit_request_json"
+        android:text="Retrofit Json"
+        android:textSize="10sp"
+        android:layout_row="1"
+        android:layout_column="1"
+        android:layout_columnWeight="2"
+        android:gravity="center"/>
+  </GridLayout>
+
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="2dp"
+      android:background="#33000000"
+      android:layout_marginTop="8dp"/>
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/tv_result"/>
+  </ScrollView>
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
