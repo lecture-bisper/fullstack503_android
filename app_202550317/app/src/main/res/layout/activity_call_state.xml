@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_call_status"
+      android:text="통화 상태 이벤트 사용"
+      android:layout_marginTop="16dp"
+      android:layout_marginHorizontal="8dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_phone_number"
+      android:text="전화번호 가져오기"
+      android:layout_marginTop="8dp"
+      android:layout_marginHorizontal="8dp"/>
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_network_state"
+      android:text="네트워크 상태 확인하기"
+      android:layout_marginTop="8dp"
+      android:layout_marginHorizontal="8dp"/>
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
